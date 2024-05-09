@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+
+    </div>
+    
+</body>
+
+
+<script>
+
+const wrapper=document.querySelector("#wrapper")
+
+    
+
+    const optionFunction={
+enableHighAccuracy: true, // Whether to use high accuracy mode
+  timeout: 5000,             // Maximum time (in milliseconds) to wait for a position
+  maximumAge: 0
+}
+   const watchId= navigator.geolocation.watchPosition(sucessFunction,errorFunction,optionFunction);
+
+    
+    
+
+   function sucessFunction(lo){
+    console.log(lo.coords.latitude);
+    const latitude=document.createElement("p");
+    latitude.innerText="latitude is " +lo.coords.latitude;
+
+    console.log(lo.coords.longitude)
+    const longitude=document.createElement("p");
+    longitude.innerText="longitude is "+lo.coords.longitude;
+
+    const addDiv=document.createElement("div");
+
+    
+
+    addDiv.append(latitude,longitude);
+    wrapper.append(addDiv);
+
+
+   }
+
+function errorFunction(){
+
+}
+
+
+
+</script>
+</html>
